@@ -1,5 +1,5 @@
 {
-    "name": "sprite game demo",
+    "name": "sprite game",
     "description": "",
     "dependencies": {
         "core": "*",
