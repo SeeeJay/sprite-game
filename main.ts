@@ -18,18 +18,14 @@ input.onGesture(Gesture.LogoDown, function () {
 })
 let player: game.LedSprite = null
 basic.showIcon(IconNames.Heart)
-player = game.createSprite(0, 0)
-let enemy = game.createSprite(randint(0, 4), randint(4, 0))
+basic.clearScreen()
+basic.pause(500)
+player = game.createSprite(2, 2)
+let enemy = game.createSprite(0, 2)
 basic.forever(function () {
     if (player.isTouching(enemy)) {
-        basic.showLeds(`
-            # # . # #
-            # # . # #
-            . . . . .
-            # . . . #
-            . # # # .
-            `)
+        game.addScore(1)
         enemy.delete()
-        enemy = game.createSprite(randint(0, 5), randint(0, 3))
+        enemy = game.createSprite(randint(0, 3), randint(0, 3))
     }
 })
