@@ -23,9 +23,14 @@ basic.pause(500)
 player = game.createSprite(2, 2)
 let enemy = game.createSprite(0, 2)
 basic.forever(function () {
+    game.setScore(1)
     if (player.isTouching(enemy)) {
         game.addScore(1)
         enemy.delete()
-        enemy = game.createSprite(randint(0, 3), randint(0, 3))
+        if (enemy.isDeleted()) {
+            game.addScore(game.score())
+            basic.showNumber(game.score())
+            enemy = game.createSprite(randint(0, 3), randint(0, 3))
+        }
     }
 })
